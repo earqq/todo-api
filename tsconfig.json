@@ -2,9 +2,11 @@
   "exclude": [
     "node_modules",
     "dist",
-    "src/**/*.test.ts"
+    "src/**/*.test.ts",
+    "test/**/*.ts"
+
   ],
-  "include" : ["src/**/*.ts"],
+  "include" : ["src/**/*.ts", "test/integration/presentation/server.test.ts"],
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
