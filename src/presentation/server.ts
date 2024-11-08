@@ -19,10 +19,10 @@ export class Server{
     }
 
     async start(){
-        this.app.use(this.routes);
         this.app.use( express.json() ); 
         this.app.use( express.urlencoded({ extended: true }) ); 
         
+        this.app.use(this.routes);
         this.serverListener = this.app.listen(this.port, () => {
             console.log(`Server listening on port ${this.port}`);
         });
