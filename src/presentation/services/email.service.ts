@@ -18,7 +18,7 @@ export class EmailService {
   private transporter: Transporter;
 
 
-  private constructor(
+  constructor(
     service: string, 
     email: string, 
     secretKey: string
