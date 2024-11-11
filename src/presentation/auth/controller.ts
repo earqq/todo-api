@@ -22,25 +22,28 @@ export class AuthController {
         return res.status(500).json({msg: 'Internal server error'});
     }
 
-    registerUser = (req: Request, res: Response) => {
+    registerUser = (req: Request, res: Response): void => {
         const registerUserDto = plainToClass(RegisterUserDto, req.body);
         const validationErrors = validateSync(registerUserDto);
         if (validationErrors.length > 0) {
             const errors = validationErrors.map(err => Object.values(err.constraints || {})).flat();
-            return res.status(400).json({ msg: errors });
+            res.status(400).json({ msg: errors }); // Remove the 'return' keyword
+            return; // Explicitly return to exit the function
         }
         this.authService.signUp(registerUserDto!)
-        .then((user) => {res.json(user)})
-        .catch((error) => this.handleError(error, res));
-        
+            .then((user) => {
+                res.json(user);
+            })
+            .catch((error) => this.handleError(error, res));
     }
 
-    loginUser = (req: Request, res: Response) => {
+    loginUser = (req: Request, res: Response):void => {
         const loginUserDto = plainToClass(LoginUserDto, req.body);
         const err = validateSync(loginUserDto);
         if (err.length > 0) {
             const errors = err.map(err => Object.values(err.constraints || {})).flat();
-            return res.status(400).json({msg: errors});
+            res.status(400).json({msg: errors});
+            return;
         }
         this.authService.loginUser(loginUserDto!)
         .then((user) => {
