@@ -5,6 +5,7 @@ import { plainToClass } from "class-transformer";
 import { CreateTodoDto } from "../../domain/dtos/todo/create-todo.dto";
 import { validateSync } from "class-validator";
 import { UpdateTodoDto } from "../../domain/dtos/todo/update-todo.dto";
+import { PaginationDto } from "../../domain/dtos/shared/pagination.dto";
 
 
 
@@ -23,7 +24,17 @@ export class TodoController {
     }
 
     index = (req: Request, res: Response): void => {
-        this.todoService.index()
+
+        const {page = 1, limit = 10} = req.query;
+
+        const [error, paginationDto] = PaginationDto.create(+page, +limit);
+        if(error){
+            res.status(400).json({msg: error});
+            return;
+        }
+
+
+        this.todoService.index(paginationDto)
             .then((todos) => {
                 res.json(todos);
             })
