@@ -2,10 +2,10 @@ import { CustomError } from "../../domain";
 import { Request, Response } from "express";
 import { TodoService } from "../services/todo.service";
 import { plainToClass } from "class-transformer";
-import { CreateTodoDto } from "../../domain/dtos/todo/create-todo.dto";
+import { CreateTodoDto } from "../../domain/dto/todo/create-todo.dto";
 import { validateSync } from "class-validator";
-import { UpdateTodoDto } from "../../domain/dtos/todo/update-todo.dto";
-import { PaginationDto } from "../../domain/dtos/shared/pagination.dto";
+import { UpdateTodoDto } from "../../domain/dto/todo/update-todo.dto";
+import { PaginationDto } from "../../domain/dto/shared/pagination.dto";
 
 
 
@@ -32,9 +32,7 @@ export class TodoController {
             res.status(400).json({msg: error});
             return;
         }
-
-
-        this.todoService.index(paginationDto)
+        this.todoService.index(paginationDto!)
             .then((todos) => {
                 res.json(todos);
             })

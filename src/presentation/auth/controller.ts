@@ -1,10 +1,10 @@
 import { plainToClass } from "class-transformer";
-import { RegisterUserDto } from "../../domain/dtos/register-user.dto";
+import { RegisterUserDto } from "../../domain/dto/register-user.dto";
 import { AuthService } from "../services/auth.service";
 import { validateSync } from "class-validator";
 import { CustomError } from "../../domain";
 import { Request, Response } from "express";
-import { LoginUserDto } from "../../domain/dtos/login-user.dto";
+import { LoginUserDto } from "../../domain/dto/login-user.dto";
 
 
 

@@ -3,8 +3,8 @@ import { envs } from "../../config/envs";
 import { JWTAdapter } from "../../config/jwt.adapter";
 import { UserModel } from "../../data/mongo";
 import { CustomError, UserEntity } from "../../domain";
-import { LoginUserDto } from "../../domain/dtos/login-user.dto";
-import { RegisterUserDto } from "../../domain/dtos/register-user.dto";
+import { LoginUserDto } from "../../domain/dto/login-user.dto";
+import { RegisterUserDto } from "../../domain/dto/register-user.dto";
 import { EmailService } from "./email.service";
 
 

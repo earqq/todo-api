@@ -1,8 +1,8 @@
 import { TodoModel } from "../../data/mongo";
 import { CustomError, UserEntity } from "../../domain";
-import { PaginationDto } from "../../domain/dtos/shared/pagination.dto";
-import { CreateTodoDto } from "../../domain/dtos/todo/create-todo.dto";
-import { UpdateTodoDto } from "../../domain/dtos/todo/update-todo.dto";
+import { PaginationDto } from "../../domain/dto/shared/pagination.dto";
+import { CreateTodoDto } from "../../domain/dto/todo/create-todo.dto";
+import { UpdateTodoDto } from "../../domain/dto/todo/update-todo.dto";
 import { TodoEntity } from "../../domain/entities/todo.entity";
 
 
@@ -13,6 +13,7 @@ export class TodoService{
     ){} 
 
     async index(paginationDto: PaginationDto){
+        
         const {page, limit} = paginationDto;
         
         try{
