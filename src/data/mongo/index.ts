@@ -1,5 +1,5 @@
 
 
 export * from './mongo-database';
-export * from './models/task.model';
+export * from './models/todo.model';
 export * from './models/user.model';
