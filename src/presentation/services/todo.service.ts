@@ -1,4 +1,4 @@
-import { TodoModel } from "../../data/mongo";
+import { TodoModel } from "../../data/mongo_data";
 import { CustomError, UserEntity } from "../../domain";
 import { PaginationDto } from "../../domain/dto/shared/pagination.dto";
 import { CreateTodoDto } from "../../domain/dto/todo/create-todo.dto";

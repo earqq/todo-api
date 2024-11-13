@@ -1,7 +1,7 @@
 import { BcryptAdapter } from "../../config/bcrypt.adapter";
 import { envs } from "../../config/envs";
 import { JWTAdapter } from "../../config/jwt.adapter";
-import { UserModel } from "../../data/mongo";
+import { UserModel } from "../../data/mongo_data";
 import { CustomError, UserEntity } from "../../domain";
 import { LoginUserDto } from "../../domain/dto/login-user.dto";
 import { RegisterUserDto } from "../../domain/dto/register-user.dto";
